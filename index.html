@@ -1,0 +1,181 @@
+<html>
+
+<head><style>html{ font-sixe:10px;
+		font-family:"Roboro cn",sans-serif;}
+		body{background-color: yellowgreen;}
+		*{margin:0px;
+		}
+		nav{display:flex;
+		justify-content:space-between;
+		background-color: lightyellow;
+		border-radius: 10px;
+		border-color: green;}
+		h1{ font-style:italic;
+		font-family:verdana;
+		margin:10px ;
+		}
+		li{list-style:none;}
+		.d{color:crimson;}
+			nav ul{ margin-top:10px;
+			display:flex;
+		
+			justify-content:space-between;
+			}
+			a{text-decoration:none;color:green;}
+			li{margin:0px 0px 30px 30px;}
+			
+			a:hover{color:crimson;}
+			.hello{text-transform:uppercase;
+				font-family: Comic Sans MS;
+				font-style: oblique;
+			margin:5px ;
+			letter-spacing:5px;}
+			i{margin-left:5px;
+			margin-right:5px;}
+		.fa fa-bookmark{position:absolute;
+		align-items:left;}
+		
+		button {background-image: linear-gradient(to right, #EDE574 0%, #E1F5C4 51%, #EDE574 100%); 
+		border-radius:5px;
+		width:100px;}
+		button:hover { background-position: right center; }
+		.ul1{ 
+			margin:50px auto;display:flex;
+		flex-wrap:wrap;}
+			
+			.note1{background-color:rgba(143, 188, 143,0.5)
+		; position:relative;
+		transform:rotate(3deg);
+			width:200px;
+			height:200px;}
+				.note2{background-color:rgba(143, 188, 143,0.5)
+		; position:relative;
+		transform:rotate(-3deg);
+			width:200px;
+			height:200px;}
+		.note1:hover,.note2:hover{width:250px;
+		height:250px;}	
+		.value{font-size:40px;
+		display:block;
+		overflow-wrap:break-word;
+		
+		margin:2px auto;
+		}
+		.icons{display:block;margin-top:20px;}
+		button{display:inline;}
+		form{display:inline;}
+			
+			</style>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+<div class="main" width=80%>
+<nav>
+<h1 class="asto">A<span class='d'>S</span>TO</h1>
+           
+<span class="hello">Note Manager</span>
+</nav>
+</div>
+<center><center>
+<center><form><input class="input" id="d" type="text" placeholder="Enter..."></input></form><button onclick="a()">Add</button></center>
+
+<div class="main1" id="main1">
+      
+	  <ul class="ul1" width="100%" onclick="b()">
+	              
+	           	  </ul>
+	  
+	  
+</div>
+<script>
+		function a()
+		{   var input=document.getElementById('d');
+		if(input.value.length>0){
+		 var intro=document.getElementsByClassName('ul1');
+		var list=document.createElement('li'); 
+		var edit=document.createElement('i');
+		edit.className="fa fa-pencil";
+			var body=document.createElement('div');
+			var main=document.createElement('span');
+			var second=document.createElement('span');
+			var icons=document.createElement('i');
+			var x=Math.floor(Math.random() * 2) + 1;
+			body.className="note"+x;
+			prime=document.createElement('i');
+			prime.className='fa fa-bookmark';
+			console.log(x);
+			main.className="value";
+			second.className="icons";
+			icons.className="fa fa-trash";
+			main.innerHTML=input.value;
+			input.value="";
+			second.appendChild(icons);
+			second.appendChild(edit);
+			body.appendChild(prime);
+			body.appendChild(main);
+			body.appendChild(second);
+			list.appendChild(body);
+			intro[0].appendChild(list);
+			console.log(input.value);
+		}}
+		
+		function b(e){
+		
+			if(event.target.className=='fa fa-trash')
+			{ console.log(event.target.parentElement.parentElement.parentElement);
+			var ulist=document.getElementsByClassName('ul1');
+		 ulist[0].removeChild(
+		 event.target.parentElement.parentElement.parentElement);
+		}
+		
+		if(event.target.className=='fa fa-pencil')
+		{ 
+		console.log('IN');
+		
+		console.log(event.target.parentNode.parentNode.childNodes[1].isContentEditable);
+		if(	event.target.parentNode.parentNode.childNodes[1].isContentEditable==false)
+		{
+			event.target.parentNode.parentNode.childNodes[1].style.color='blue';
+			event.target.parentNode.parentNode.childNodes[1].style.textDecoration = "underline";
+			event.target.parentNode.parentNode.childNodes[1].contentEditable=true;
+		}
+		
+		
+		else{
+			event.target.parentNode.parentNode.childNodes[1].style.textDecoration = "none";
+			
+			event.target.parentNode.parentNode.childNodes[1].style.color='crimson';
+			event.target.parentNode.parentNode.childNodes[1].contentEditable=false;
+			
+			
+			
+		}
+		
+		
+		
+		}
+		
+		}
+		
+		
+		
+		/*
+		c
+		<div class="note">
+					 <i class="fa fa-bookmark" aria-hidden="true"></i>
+					<span class="value">dvdfvv<span>
+					<span class="icons">
+					<i class="fa fa-trash" aria-hidden="true"></i>
+					<i class="fa fa-pencil" aria-hidden="true"></i>
+					<span>
+					</div>
+					*/</script>
+</body>
+
+
+
+</html>
